@@ -61,6 +61,8 @@ services:
     - ./data/custom-templates:/templates
   authentik-worker:
     command: worker
+    container_name: authentik-worker
+    hostname: authentik-worker
     image: authentik/server:2025.8
     networks: ['shared_network']
     restart: always
