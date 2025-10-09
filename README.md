@@ -1,10 +1,10 @@
 # Authentik Self-Hosted with Docker
 
-![authentik-self-hosted](https://repository-images.githubusercontent.com/1070471675/fa9106df-8efd-4e28-82c3-a363e5164e0d)
+![authentik-self-hosted](https://repository-images.githubusercontent.com/1072874879/fe4ca6bf-5de8-4784-ad8e-280ee339bb68)
 
 This repository provides a `docker-compose` setup to run a self-hosted [Authentik](https://goauthentik.io/) instance. Authentik is a flexible, open-source Identity & Access Management (IAM) solution that provides Single Sign-On, support for various protocols, and a user-friendly interface.
 
-This setup uses dedicated PostgreSQL and Redis containers and is pre-configured to join a shared Docker network, allowing easy integration with other self-hosted services.
+This setup uses dedicated [PostgreSQL](https://www.postgresql.org/) and [Redis](https://redis.io/) containers and is pre-configured to join a shared Docker network, allowing easy integration with other self-hosted services.
 
 ## Key Features
 
