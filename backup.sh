@@ -11,4 +11,4 @@ BACKUP_DIR="backups"
 mkdir -p "${BACKUP_DIR}"
 
 # Dump the PostgreSQL database and compress it.
-docker compose exec -T ak-psql pg_dump -U authentik -d authentik | gzip > "${BACKUP_DIR}/psql_authentik_$(date +%F_%H-%M-%S).sql.gz"
+docker compose exec -T authentik-psql pg_dump -U authentik -d authentik | gzip > "${BACKUP_DIR}/psql_authentik_$(date +%F_%H-%M-%S).sql.gz"

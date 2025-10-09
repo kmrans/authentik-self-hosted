@@ -1,7 +1,7 @@
 services:
-  ak-redis:
-    container_name: ak-redis
-    hostname: ak-redis
+  authentik-redis:
+    container_name: authentik-redis
+    hostname: authentik-redis
     image: redis:alpine
     networks: ['shared_network']
     restart: always
@@ -15,10 +15,10 @@ services:
       --bind 0.0.0.0
       --save 60 1
     volumes:
-      - ./data/ak-redis:/data
-  ak-psql:
-    container_name: ak-psql
-    hostname: ak-psql
+      - ./data/authentik-redis:/data
+  authentik-psql:
+    container_name: authentik-psql
+    hostname: authentik-psql
     image: postgres:17
     networks: ['shared_network']
     restart: always
@@ -27,16 +27,16 @@ services:
       POSTGRES_PASSWORD: ${PSQL_PWD}
       POSTGRES_DB: authentik
     volumes:
-      - ./data/ak-psql:/var/lib/postgresql/data
+      - ./data/authentik-psql:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -h localhost -U authentik -d authentik']
       interval: 5s
       timeout: 5s
       retries: 10
-  ak-server:
+  authentik-server:
     command: server
-    container_name: ak-server
-    hostname: ak-server
+    container_name: authentik-server
+    hostname: authentik-server
     image: authentik/server:2025.8
     networks: ['shared_network']
     ports:
@@ -44,37 +44,37 @@ services:
     - '9443:9443'
     restart: always
     depends_on:
-      ak-psql:
+      authentik-psql:
         condition: service_healthy
-      ak-redis:
+      authentik-redis:
         condition: service_healthy
     environment:
-      AUTHENTIK_POSTGRESQL__HOST: ak-psql
+      AUTHENTIK_POSTGRESQL__HOST: authentik-psql
       AUTHENTIK_POSTGRESQL__NAME: authentik
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
       AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_REDIS__HOST: ak-redis
+      AUTHENTIK_REDIS__HOST: authentik-redis
       AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
     volumes:
     - ./data/media:/media
     - ./data/custom-templates:/templates
-  ak-worker:
+  authentik-worker:
     command: worker
     image: authentik/server:2025.8
     networks: ['shared_network']
     restart: always
     depends_on:
-      ak-psql:
+      authentik-psql:
         condition: service_healthy
-      ak-redis:
+      authentik-redis:
         condition: service_healthy
     environment:
-      AUTHENTIK_POSTGRESQL__HOST: ak-psql
+      AUTHENTIK_POSTGRESQL__HOST: authentik-psql
       AUTHENTIK_POSTGRESQL__NAME: authentik
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
       AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_REDIS__HOST: ak-redis
+      AUTHENTIK_REDIS__HOST: authentik-redis
       AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
     user: root
