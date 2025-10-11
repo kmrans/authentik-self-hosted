@@ -46,11 +46,18 @@ This setup uses dedicated [PostgreSQL](https://www.postgresql.org/) and [Redis](
     ```
     After starting, Authentik will perform its initial setup. This might take a minute or two.
 
-## Accessing Authentik
+## Setup and Accessing Authentik
+
+To start the initial setup, navigate to:
+
+-   **Initial Setup URL:**  [http://localhost:9000/if/flow/initial-setup/](http://localhost:9000/if/flow/initial-setup/)
+
+> You will get a `Not Found` error if initial setup URL doesn't include the trailing forward slash `/`. Make sure you use the complete url [http://localhost:9000/if/flow/initial-setup/](http://localhost:9000/if/flow/initial-setup/) including the trailing forward slash.
+
+There you are prompted to set a password for the `akadmin` user (the default user).
 
 -   **Authentik Web UI:** [http://localhost:9000](http://localhost:9000)
 
-When you first log in, Authentik will guide you through creating an `akadmin` user and setting up the initial configuration.
 
 ## Usage and Management
 
