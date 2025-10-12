@@ -1,3 +1,21 @@
+x-authentik-common-env: &authentik-common-env
+  AUTHENTIK_POSTGRESQL__HOST: authentik-psql
+  AUTHENTIK_POSTGRESQL__NAME: authentik
+  AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
+  AUTHENTIK_POSTGRESQL__USER: authentik
+  AUTHENTIK_REDIS__HOST: authentik-redis
+  AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
+  AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
+  AUTHENTIK_LOG_LEVEL: warning
+  AUTHENTIK_EMAIL__HOST: ${AUTHENTIK_EMAIL__HOST}
+  AUTHENTIK_EMAIL__PORT: ${AUTHENTIK_EMAIL__PORT}
+  AUTHENTIK_EMAIL__USERNAME: ${AUTHENTIK_EMAIL__USERNAME}
+  AUTHENTIK_EMAIL__PASSWORD: ${AUTHENTIK_EMAIL__PASSWORD}
+  AUTHENTIK_EMAIL__USE_SSL: ${AUTHENTIK_EMAIL__USE_SSL}
+  AUTHENTIK_EMAIL__TIMEOUT: ${AUTHENTIK_EMAIL__TIMEOUT}
+  AUTHENTIK_EMAIL__FROM: ${AUTHENTIK_EMAIL__FROM}
+
+
 services:
   authentik-redis:
     container_name: authentik-redis
@@ -49,15 +67,7 @@ services:
         condition: service_healthy
       authentik-redis:
         condition: service_healthy
-    environment:
-      AUTHENTIK_POSTGRESQL__HOST: authentik-psql
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_REDIS__HOST: authentik-redis
-      AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
-      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
-      AUTHENTIK_LOG_LEVEL: warning
+    environment: *authentik-common-env
     volumes:
     - ./data/media:/media
     - ./data/custom-templates:/templates
@@ -73,15 +83,7 @@ services:
         condition: service_healthy
       authentik-redis:
         condition: service_healthy
-    environment:
-      AUTHENTIK_POSTGRESQL__HOST: authentik-psql
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_REDIS__HOST: authentik-redis
-      AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
-      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
-      AUTHENTIK_LOG_LEVEL: warning
+    environment: *authentik-common-env
     user: root
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
