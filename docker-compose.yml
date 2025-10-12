@@ -15,7 +15,6 @@ x-authentik-common-env: &authentik-common-env
   AUTHENTIK_EMAIL__TIMEOUT: ${AUTHENTIK_EMAIL__TIMEOUT}
   AUTHENTIK_EMAIL__FROM: ${AUTHENTIK_EMAIL__FROM}
 
-
 services:
   authentik-redis:
     container_name: authentik-redis
