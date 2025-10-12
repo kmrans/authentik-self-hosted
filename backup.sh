@@ -5,8 +5,6 @@ date
 # Exit immediately if a command exits with a non-zero status.
 set -e
 
-source .env
-
 BACKUP_DIR="backups"
 mkdir -p "${BACKUP_DIR}"
 
