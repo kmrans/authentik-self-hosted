@@ -57,6 +57,7 @@ services:
       AUTHENTIK_REDIS__HOST: authentik-redis
       AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
+      AUTHENTIK_LOG_LEVEL: warning
     volumes:
     - ./data/media:/media
     - ./data/custom-templates:/templates
@@ -80,6 +81,7 @@ services:
       AUTHENTIK_REDIS__HOST: authentik-redis
       AUTHENTIK_REDIS__PASSWORD: ${REDIS_PWD}
       AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
+      AUTHENTIK_LOG_LEVEL: warning
     user: root
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
