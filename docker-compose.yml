@@ -58,8 +58,8 @@ services:
     image: authentik/server:2025.8
     networks: ['shared_network']
     ports:
-    - '9000:9000'
-    - '9443:9443'
+      - '9000:9000'
+      - '9443:9443'
     restart: always
     depends_on:
       authentik-psql:
@@ -68,8 +68,8 @@ services:
         condition: service_healthy
     environment: *authentik-common-env
     volumes:
-    - ./data/media:/media
-    - ./data/custom-templates:/templates
+      - ./data/media:/media
+      - ./data/custom-templates:/templates
   authentik-worker:
     command: worker
     container_name: authentik-worker
@@ -85,10 +85,10 @@ services:
     environment: *authentik-common-env
     user: root
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./data/media:/media
-    - ./data/certs:/certs
-    - ./data/custom-templates:/templates
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/media:/media
+      - ./data/certs:/certs
+      - ./data/custom-templates:/templates
 networks:
   shared_network:
     name: shared_network
