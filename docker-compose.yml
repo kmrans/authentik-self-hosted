@@ -1,4 +1,5 @@
 x-authentik-common-env: &authentik-common-env
+  # AUTHENTIK_HOST: ${AUTHENTIK_HOST}
   AUTHENTIK_POSTGRESQL__HOST: authentik-psql
   AUTHENTIK_POSTGRESQL__NAME: authentik
   AUTHENTIK_POSTGRESQL__PASSWORD: ${PSQL_PWD}
