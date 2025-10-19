@@ -22,7 +22,8 @@ services:
     container_name: authentik-redis
     hostname: authentik-redis
     image: redis:alpine
-    networks: ['shared_network']
+    networks:
+      - shared_network
     restart: always
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
@@ -40,7 +41,8 @@ services:
     container_name: authentik-psql
     hostname: authentik-psql
     image: postgres:17
-    networks: ['shared_network']
+    networks:
+      - shared_network
     restart: always
     environment:
       POSTGRES_USER: authentik
@@ -66,7 +68,8 @@ services:
     container_name: authentik-server
     hostname: authentik-server
     image: authentik/server:2025.8
-    networks: ['shared_network']
+    networks:
+      - shared_network
     ports:
       - '9000:9000'
       - '9443:9443'
@@ -85,7 +88,8 @@ services:
     container_name: authentik-worker
     hostname: authentik-worker
     image: authentik/server:2025.8
-    networks: ['shared_network']
+    networks:
+      - shared_network
     restart: always
     depends_on:
       authentik-psql:
